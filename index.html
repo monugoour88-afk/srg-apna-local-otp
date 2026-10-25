@@ -69,7 +69,7 @@ const firebaseConfig = {
         );
         message.textContent = "OTP भेज दिया गया है।";
       } catch (error) {
-        message.textContent = "OTP नहीं भेजा गया। Firebase सेटिंग जाँचें।";
+        message.textContent = "OTP Error: " + error.code + " - " + error.message;
         console.error(error);
         if (window.recaptchaVerifier) {
           window.recaptchaVerifier.clear();
