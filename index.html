@@ -89,8 +89,13 @@ const firebaseConfig = {
         return;
       }
       try {
-        await confirmationResult.confirm(otp);
-        message.textContent = "लॉगिन सफल हुआ!";
+        
+const result = await confirmationResult.confirm(otp);
+const user = result.user;
+
+message.textContent =
+  "लॉगिन सफल हुआ! आपका मोबाइल नंबर: " + user.phoneNumber;
+        
       } catch (error) {
         message.textContent = "OTP गलत या समाप्त हो चुका है।";
         console.error(error);
